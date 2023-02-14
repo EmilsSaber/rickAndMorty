@@ -1,7 +1,8 @@
-package com.example.rickandmorty
+package com.example.rickandmorty.presentation.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.rickandmorty.presentation.utils.ViewPagerAdapter
 import com.example.rickandmorty.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
