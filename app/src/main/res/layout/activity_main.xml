@@ -6,20 +6,59 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+<androidx.constraintlayout.widget.ConstraintLayout
+    app:layout_constraintTop_toTopOf="parent"
+    android:background="@color/rickBlue"
+    app:layout_constraintBottom_toTopOf="@id/viewPager"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:id="@+id/tab_search"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <SearchView
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_search_view"
+        app:layout_constraintTop_toTopOf="@id/tab_search"
+        app:layout_constraintStart_toStartOf="@id/tab_search"
+        app:layout_constraintEnd_toEndOf="@id/tab_search"
+
+        android:id="@+id/search_id"
+        android:layout_width="268dp"
+        android:layout_height="wrap_content" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.viewpager.widget.ViewPager
+        app:layout_constraintTop_toBottomOf="@id/tab_search"
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:layout_editor_absoluteX="-27dp"
-        tools:layout_editor_absoluteY="16dp">
+        tools:layout_editor_absoluteX="-27dp">
 
         <androidx.viewpager.widget.PagerTitleStrip
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:background="@color/purple_500"
+            android:background="@color/rickBlue"
+
             android:padding="13dp" />
+
+        <!--        <com.google.android.material.tabs.TabLayout-->
+        <!--            android:id="@+id/tab_layout"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.5"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:tabIndicatorHeight="3dp">-->
+        <!--            -->
+
+        <!--        </com.google.android.material.tabs.TabLayout>-->
+
     </androidx.viewpager.widget.ViewPager>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
