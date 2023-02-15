@@ -3,9 +3,9 @@ package com.example.rickandmorty.presentation.utils
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.example.rickandmorty.presentation.fragment.CharactersFragment
-import com.example.rickandmorty.presentation.fragment.EpisodeFragment
-import com.example.rickandmorty.presentation.fragment.LocationFragment
+import com.example.rickandmorty.presentation.fragment.characters.CharactersFragment
+import com.example.rickandmorty.presentation.fragment.episode.EpisodeFragment
+import com.example.rickandmorty.presentation.fragment.location.LocationFragment
 
 
 class ViewPagerAdapter (fm: FragmentManager): FragmentPagerAdapter(fm){
