@@ -27,7 +27,7 @@ fun provideOkHttpClient(): OkHttpClient {
 }
 
 fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
-    return Retrofit.Builder().baseUrl("https://rickandmortyapi.com/api")
+    return Retrofit.Builder().baseUrl("https://rickandmortyapi.com/api/")
         .addConverterFactory(GsonConverterFactory.create())
         .client(okHttpClient).build()
 

@@ -1,20 +1,45 @@
 package com.example.rickandmorty.presentation.fragment.characters
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.example.rickandmorty.R
+import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
+import androidx.paging.map
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.rickandmorty.databinding.FragmentCharactersBinding
+import com.example.rickandmorty.presentation.base.BaseFragment
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CharactersFragment : Fragment() {
+class CharactersFragment : BaseFragment<FragmentCharactersBinding>() {
+    private val viewModel: CharactersViewModel by viewModel()
+    private lateinit var adapter: CharactersAdapter
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_characters, container, false)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+            adapter = CharactersAdapter()
+    }
+
+
+    override fun initListener() {
+        binding.charactersRecycler.layoutManager = LinearLayoutManager(context)
+        binding.charactersRecycler.adapter = adapter
+
+        adapter.addLoadStateListener { loadStates ->
+            binding.charactersRecycler.isVisible = loadStates.refresh is LoadState.NotLoading
+        }
+
+        lifecycleScope.launch {
+            viewModel.fetchFoo().collectLatest{
+                adapter.submitData(it)
+            }
+        }
+    }
+
+    override fun inflate(layoutInflater: LayoutInflater): FragmentCharactersBinding {
+        return FragmentCharactersBinding.inflate(layoutInflater)
     }
 
 }

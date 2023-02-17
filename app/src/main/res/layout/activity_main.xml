@@ -54,7 +54,6 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-
         tools:layout_editor_absoluteX="-27dp">
 
 
@@ -74,8 +73,6 @@
                     android:background="@color/rickBlue"
                     app:tabIndicatorHeight="3dp">
                 </com.google.android.material.tabs.TabLayout>
-
-
     </androidx.viewpager.widget.ViewPager>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
