@@ -3,9 +3,6 @@ package com.example.rickandmorty.presentation.fragment.home
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
-import android.widget.SearchView
-import androidx.core.widget.addTextChangedListener
-import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import com.example.rickandmorty.databinding.FragmentHomeBinding
 import com.example.rickandmorty.presentation.base.BaseFragment
@@ -13,7 +10,7 @@ import com.example.rickandmorty.presentation.fragment.AllViewModel
 import com.example.rickandmorty.presentation.utils.ViewPagerAdapter
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private val viewModel: AllViewModel by sharedViewModel()
@@ -44,30 +41,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 s.let {
 
                         lifecycleScope.launch {
-                            if (it != null) {
-                                viewModel.searchResults(it.toString(), it.toString(), it.toString())
-                            }
+                            viewModel.searchResults(it.toString(), it.toString(), it.toString())
                         }
             }
 
             }
         })
-
-//        binding.searchId.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(p0: String): Boolean {
-//                return false
-//            }
-//
-//            override fun onQueryTextChange(p0: String?): Boolean {
-//                p0.let {
-//                        lifecycleScope.launch {
-//                            if (it != null) {
-//                                viewModel.searchResults(it, it, it)
-//                            }
-//                        }
-//                }
-//                return false
-//            }
-//        })
     }
 }
