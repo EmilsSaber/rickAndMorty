@@ -10,12 +10,12 @@ import com.example.rickandmorty.data.model.modelCharacters.OriginDto
 data class ModelCharacters(
     val info: Info,
     val results: List<Result>
-):DataMapper<ModelCharactersDto> {
-    override fun toDomain()=ModelCharactersDto (
+) : DataMapper<ModelCharactersDto> {
+    override fun toDomain() = ModelCharactersDto(
         info.toDomain(),
         results.map { it.toDomain() }
 
-        )
+    )
 }
 
 data class Info(
@@ -23,8 +23,8 @@ data class Info(
     val next: String,
     val pages: Int,
     val prev: Any
-):DataMapper<InfoDto> {
-    override fun toDomain() =InfoDto(
+) : DataMapper<InfoDto> {
+    override fun toDomain() = InfoDto(
         count, next, pages, prev
     )
 }
@@ -42,9 +42,9 @@ data class Result(
     val status: String,
     val type: String,
     val url: String
-):DataMapper<ResultDto> {
+) : DataMapper<ResultDto> {
 
-    override fun toDomain()= ResultDto(
+    override fun toDomain() = ResultDto(
         created,
         episode,
         gender,
@@ -63,17 +63,17 @@ data class Result(
 data class Location(
     val name: String,
     val url: String
-):DataMapper<LocationDto> {
-    override fun toDomain()= LocationDto (
+) : DataMapper<LocationDto> {
+    override fun toDomain() = LocationDto(
         name, url
-            )
+    )
 }
 
 data class Origin(
     val name: String,
     val url: String
-):DataMapper<OriginDto> {
-    override fun toDomain()= OriginDto(
+) : DataMapper<OriginDto> {
+    override fun toDomain() = OriginDto(
         name, url
     )
 }
