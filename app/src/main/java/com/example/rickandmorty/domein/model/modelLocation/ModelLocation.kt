@@ -1,20 +1,18 @@
-package com.example.rickandmorty.domein.model.modelLocation
-import com.example.rickandmorty.data.model.modelLocation.Info
-import com.example.rickandmorty.data.model.modelLocation.Result
+package com.example.rickandmorty.domain.model.modelLocation
 
 data class DModelLocation(
-    val info: Info,
-    val results: List<Result>
+    val info: InfoLocation,
+    val results: List<Location>
 )
 
-data class DInfo(
+data class InfoLocation(
     val count: Int,
     val next: String,
     val pages: Int,
     val prev: Any
 )
 
-data class DResult(
+data class Location(
     val created: String,
     val dimension: String,
     val id: Int,

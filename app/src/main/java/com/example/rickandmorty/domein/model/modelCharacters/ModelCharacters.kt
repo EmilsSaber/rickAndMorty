@@ -1,18 +1,21 @@
-package com.example.rickandmorty.data.model.modelCharacters
+package com.example.rickandmorty.domein.model.modelCharacters
 
 import com.example.rickandmorty.data.mapper.DataMapper
-import com.example.rickandmorty.domein.model.modelCharacters.*
-import com.example.rickandmorty.domein.model.modelCharacters.Location
-import com.example.rickandmorty.domein.model.modelCharacters.Origin
+import com.example.rickandmorty.data.model.modelCharacters.InfoDto
+import com.example.rickandmorty.data.model.modelCharacters.ModelCharactersDto
+import com.example.rickandmorty.data.model.modelCharacters.ResultDto
+import com.example.rickandmorty.data.model.modelCharacters.LocationDto
+import com.example.rickandmorty.data.model.modelCharacters.OriginDto
 
 data class ModelCharacters(
     val info: Info,
     val results: List<Result>
-):DataMapper<DModelCharacters> {
-    override fun toDomain()= DModelCharacters (
+):DataMapper<ModelCharactersDto> {
+    override fun toDomain()=ModelCharactersDto (
         info.toDomain(),
         results.map { it.toDomain() }
-            )
+
+        )
 }
 
 data class Info(
@@ -20,10 +23,9 @@ data class Info(
     val next: String,
     val pages: Int,
     val prev: Any
-):DataMapper<DInfo> {
-    override fun toDomain()= DInfo(
-        count,
-        next, pages, prev
+):DataMapper<InfoDto> {
+    override fun toDomain() =InfoDto(
+        count, next, pages, prev
     )
 }
 
@@ -33,15 +35,16 @@ data class Result(
     val gender: String,
     val id: Int,
     val image: String,
-    val location: com.example.rickandmorty.data.model.modelCharacters.Location,
+    val location: Location,
     val name: String,
-    val origin: com.example.rickandmorty.data.model.modelCharacters.Origin,
+    val origin: Origin,
     val species: String,
     val status: String,
     val type: String,
     val url: String
-):DataMapper<DResult> {
-    override fun toDomain()= DResult (
+):DataMapper<ResultDto> {
+
+    override fun toDomain()= ResultDto(
         created,
         episode,
         gender,
@@ -54,23 +57,23 @@ data class Result(
         status,
         type,
         url
-            )
+    )
 }
 
 data class Location(
     val name: String,
     val url: String
-):DataMapper<Location> {
-    override fun toDomain()= Location (
-        name,url
+):DataMapper<LocationDto> {
+    override fun toDomain()= LocationDto (
+        name, url
             )
 }
 
 data class Origin(
     val name: String,
     val url: String
-):DataMapper<Origin> {
-    override fun toDomain()= Origin(
-        name,url
+):DataMapper<OriginDto> {
+    override fun toDomain()= OriginDto(
+        name, url
     )
 }

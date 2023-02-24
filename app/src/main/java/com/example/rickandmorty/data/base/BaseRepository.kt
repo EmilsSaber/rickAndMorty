@@ -1,11 +1,26 @@
-package com.example.rickandmorty.data.paging
+package com.example.rickandmorty.data.base
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import androidx.paging.PagingData
 import com.example.rickandmorty.data.mapper.DataMapper
-import kotlinx.coroutines.flow.Flow
+
+import com.example.rickandmorty.domein.utils.Resourse
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import java.io.IOException
+
 abstract class BaseRepository() {
+    protected  fun <T>  doReguest(reguest:suspend () -> T) = flow{
+        emit(Resourse.Loading())
+        try {
+            val data =  reguest()
+            emit(Resourse.Success(data))
+        }catch (ioExaption: IOException){
+            emit(Resourse.Error(ioExaption.localizedMessage ?: "hj"))
+        }
+
+    }.flowOn(Dispatchers.IO)
     internal fun <ValueDto : DataMapper<Value>, Value : Any> doPagingRequest(
         pagingSource: BasePagingSource<ValueDto, Value>,
         pageSize: Int = 10,

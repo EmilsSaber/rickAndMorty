@@ -15,7 +15,7 @@ class ViewPagerAdapter (fm: FragmentManager): FragmentPagerAdapter(fm){
         return when (position) {
             0 -> CharactersFragment()
             1 -> EpisodeFragment()
-            2 -> LocationFragment()
+            2-> LocationFragment()
             else -> CharactersFragment()
         }
     }
@@ -28,7 +28,9 @@ class ViewPagerAdapter (fm: FragmentManager): FragmentPagerAdapter(fm){
         when (position) {
             0 -> return "Персонажи"
             1 -> return "Эпизод"
-            2 -> return "Локации"
+            2 -> return "Эпизод"
+
+
         }
         return ""
     }

@@ -1,21 +1,19 @@
-package com.example.rickandmorty.domein.model.modelEpisode
+package com.example.rickandmorty.domain.model.modelEpisode
 
-import com.example.rickandmorty.data.model.modelEpisode.Info
-import com.example.rickandmorty.data.model.modelEpisode.Result
-
-data class DModelEpisode(
-    val info: Info,
-    val results: List<Result>
+data class ModelEpisode(
+    val info: InfoEpisode,
+    val results: List<Episode>
 )
 
-data class DInfo(
+data class InfoEpisode(
     val count: Int,
     val next: String,
     val pages: Int,
     val prev: Any
+
 )
 
-data class DResult(
+data class Episode(
     val air_date: String,
     val characters: List<String>,
     val created: String,
@@ -24,3 +22,4 @@ data class DResult(
     val name: String,
     val url: String
 )
+

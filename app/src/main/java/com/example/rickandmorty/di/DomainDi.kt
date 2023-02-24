@@ -9,12 +9,13 @@ val domainModule = module {
     factory {
         GetAllCharactersUseCase(rickAndMortyRepository = get())
     }
-//    factory {
-//        GetAllEpisodeUseCase(get())
-//    }
-//    factory {
-//        GetAllLocationUseCase(get())
-//    }
+    factory {
+        GetAllEpisodeUseCase(rickAndMortyRepository = get())
+    }
+
+    factory {
+        GetAllLocationUseCase(get())
+    }
     /*factory {
         val postRepository: MangaRepository =
             MangaRepositoryImpl(get())

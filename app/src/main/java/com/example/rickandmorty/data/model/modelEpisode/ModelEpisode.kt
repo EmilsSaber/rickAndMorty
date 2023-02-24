@@ -1,10 +1,16 @@
 package com.example.rickandmorty.data.model.modelEpisode
 
+import android.widget.ImageView
+import com.example.rickandmorty.data.mapper.DataMapper
+import com.example.rickandmorty.domain.model.modelEpisode.Episode
+
 data class ModelEpisode(
     val info: Info,
-    val results: List<Result>
+    val results: List<EpisodeDto>
 )
+fun ImageView.glide(img:ImageView){
 
+}
 data class Info(
     val count: Int,
     val next: String,
@@ -12,7 +18,7 @@ data class Info(
     val prev: Any
 )
 
-data class Result(
+data class EpisodeDto(
     val air_date: String,
     val characters: List<String>,
     val created: String,
@@ -20,4 +26,8 @@ data class Result(
     val id: Int,
     val name: String,
     val url: String
-)
+) : DataMapper<Episode> {
+    override fun toDomain() = Episode(
+        air_date, characters, created, episode, id, name, url
+    )
+}

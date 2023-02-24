@@ -1,8 +1,11 @@
 package com.example.rickandmorty.data.model.modelLocation
 
+import com.example.rickandmorty.data.mapper.DataMapper
+import com.example.rickandmorty.domain.model.modelLocation.Location
+
 data class ModelLocation(
     val info: Info,
-    val results: List<Result>
+    val results: List<LocationDto>
 )
 
 data class Info(
@@ -12,7 +15,8 @@ data class Info(
     val prev: Any
 )
 
-data class Result(
+
+data class LocationDto(
     val created: String,
     val dimension: String,
     val id: Int,
@@ -20,4 +24,8 @@ data class Result(
     val residents: List<String>,
     val type: String,
     val url: String
-)
+):DataMapper<Location> {
+    override fun toDomain()=  Location(
+        created, dimension, id, name, residents, type, url
+    )
+}

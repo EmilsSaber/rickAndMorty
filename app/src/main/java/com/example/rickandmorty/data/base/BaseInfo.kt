@@ -1,4 +1,4 @@
-package com.example.rickandmorty.data.paging
+package com.example.rickandmorty.data.base
 
 import com.google.gson.annotations.SerializedName
 

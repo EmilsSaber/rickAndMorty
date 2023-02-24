@@ -82,9 +82,10 @@ lifecycleScope.launch {
         gather: suspend () -> Unit,
     ) {
         viewLifecycleOwner.lifecycleScope.launch {
+
             viewLifecycleOwner.repeatOnLifecycle(lifecycleState) {
                 gather()
             }
-        }
-    }
+
+    }}
 }

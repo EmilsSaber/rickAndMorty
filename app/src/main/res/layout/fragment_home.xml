@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".presentation.activity.MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:outlineSpotShadowColor="@color/white"
+        android:layout_width="match_parent"
+        android:fitsSystemWindows="true"
+        android:layout_height="wrap_content"
+        tools:targetApi="p">
+
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:fitsSystemWindows="true"
+            android:layout_width="match_parent"
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:layout_height="match_parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@color/rickBlue"
+                app:layout_constraintBottom_toTopOf="@id/viewPager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/tab_search"
+                android:layout_width="match_parent"
+                android:layout_height="84dp">
+
+                <EditText
+                    android:id="@+id/search_id"
+                    android:layout_width="268dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_search_view"
+                    android:hint="@string/search"
+                    android:paddingHorizontal="12dp"
+                    android:textColor="@color/dark"
+                    android:textColorHint="@color/dark"
+                    app:layout_constraintBottom_toBottomOf="@id/tab_search"
+                    app:layout_constraintEnd_toEndOf="@id/tab_search"
+                    app:layout_constraintStart_toStartOf="@id/tab_search"
+                    app:layout_constraintTop_toTopOf="@id/tab_search"
+                    tools:ignore="Autofill,TextFields" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+
+        app:layout_constraintTop_toBottomOf="@id/tab_search"
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:layout_editor_absoluteX="-27dp">
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@color/rickBlue"
+            android:scrollbarSize="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tabIndicatorColor="@color/rickGreen"
+            app:tabIndicatorHeight="3dp"
+            app:tabTextColor="@color/rickGreen"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+
+    </androidx.viewpager.widget.ViewPager>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

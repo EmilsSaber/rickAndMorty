@@ -9,4 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="rickBlue">#a2cada</color>
     <color name="rickGreen">#212B16</color>
+    <color name="dark">#4D4D4D</color>
+    <color name="red">#BC3333</color>
+
 </resources>
