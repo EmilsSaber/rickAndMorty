@@ -11,7 +11,8 @@ interface  ApiService {
     @GET("character")
     suspend fun getAllMangaCharacters(
         @Query("page") page:Int,
-        @Query("name") name:String?
+        @Query("name") name:String?,
+
     ): BasePagingResponse<ResultDto>
 
     @GET("episode")

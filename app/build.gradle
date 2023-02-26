@@ -97,7 +97,7 @@ dependencies {
     implementation "io.insert-koin:koin-androidx-viewmodel:$koin_version"
     implementation "io.insert-koin:koin-androidx-fragment:$koin_version"
 
-    //paging
+    //paging3
     implementation 'androidx.paging:paging-runtime-ktx:3.1.1'
 
 }

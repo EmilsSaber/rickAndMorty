@@ -28,9 +28,7 @@ class ViewPagerAdapter (fm: FragmentManager): FragmentPagerAdapter(fm){
         when (position) {
             0 -> return "Персонажи"
             1 -> return "Эпизод"
-            2 -> return "Эпизод"
-
-
+            2 -> return "Локации"
         }
         return ""
     }

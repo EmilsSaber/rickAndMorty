@@ -24,7 +24,6 @@ class CharactersFragment : BaseFragment<FragmentCharactersBinding>() {
     override fun initListener() {
         binding.charactersRecycler.layoutManager = LinearLayoutManager(context)
         binding.charactersRecycler.adapter = adapter
-
         adapter.addLoadStateListener { loadStates ->
             binding.charactersRecycler.isVisible = loadStates.refresh is LoadState.NotLoading
         }
